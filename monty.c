@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     /* stack_t *stack = NULL;*/
     char *line = NULL;
     size_t bufsize = 0;
-    ssize_t linelen;
+    size_t linelen;
     unsigned int line_number = 0;
 
     /* Check if the correct number of arguments is provided */
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
    
 
     /* Read the Monty byte code file line by line */
-    while ((linelen = getline(&line, &bufsize, file)) != -1)
+    while ((linelen = my_getline(&line, &bufsize, file)) != 0)
     {
         line_number++;
         /* Tokenize the line to extract the opcode and its argument (if any) */
