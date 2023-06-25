@@ -1,9 +1,15 @@
+#include <stdio.h>
 #include "stack.h"
 #include <stdlib.h>
 
 void push(stack_t **stack, int value)
 {
     stack_t *new_node = malloc(sizeof(stack_t));
+    new_node->n = value;
+    new_node->prev = NULL;
+    new_node->next = *stack;
+
+    
     if (new_node == NULL)
     {
         /* Handle malloc failure */
@@ -11,9 +17,6 @@ void push(stack_t **stack, int value)
         exit(EXIT_FAILURE);
     }
 
-    new_node->n = value;
-    new_node->prev = NULL;
-    new_node->next = *stack;
 
     if (*stack != NULL)
         (*stack)->prev = new_node;
@@ -23,6 +26,11 @@ void push(stack_t **stack, int value)
 
 int pop(stack_t **stack)
 {
+    int value = (*stack)->n;
+    stack_t *temp = *stack;
+
+    *stack = (*stack)->next;
+    
     if (*stack == NULL)
     {
         /* Handle empty stack */
@@ -30,10 +38,7 @@ int pop(stack_t **stack)
         exit(EXIT_FAILURE);
     }
 
-    int value = (*stack)->n;
-    stack_t *temp = *stack;
-
-    *stack = (*stack)->next;
+   
 
     if (*stack != NULL)
         (*stack)->prev = NULL;
