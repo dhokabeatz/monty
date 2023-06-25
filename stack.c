@@ -1,6 +1,4 @@
 #include "stack.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdlib.h>
 
 void push(stack_t **stack, int value)
@@ -25,8 +23,6 @@ void push(stack_t **stack, int value)
 
 int pop(stack_t **stack)
 {
-    int value = (*stack)->n;
-    stack_t *temp = *stack;
     if (*stack == NULL)
     {
         /* Handle empty stack */
@@ -34,6 +30,8 @@ int pop(stack_t **stack)
         exit(EXIT_FAILURE);
     }
 
+    int value = (*stack)->n;
+    stack_t *temp = *stack;
 
     *stack = (*stack)->next;
 

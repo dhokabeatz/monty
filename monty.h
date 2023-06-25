@@ -1,25 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-/*Libraries*/
-#include <stdio.h>
-/* ============== Definitions ==============================*/
-/**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
- */
+/* Structure for stack node */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
 } stack_t;
-
 
 /**
  * struct instruction_s - opcode and its function
@@ -36,12 +24,8 @@ typedef struct instruction_s
 } instruction_t;
 
 
-/* ==============Function prototypes=================*/
+/* Function prototypes */
 void push(stack_t **stack, int value);
 void pall(stack_t **stack);
-
-/*Self-made functions*/
-int my_getline(char **line, size_t *bufsize, FILE *file);
-
 
 #endif /* MONTY_H */
