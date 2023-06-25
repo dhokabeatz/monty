@@ -27,5 +27,7 @@ typedef struct instruction_s
 /* Function prototypes */
 void push(stack_t **stack, int value);
 void pall(stack_t **stack);
+int is_number(const char *str);
+void free_stack(stack_t **stack);
 
 #endif /* MONTY_H */
